@@ -1,0 +1,13 @@
+{
+	"name": "area_server",
+	"version": "1.0.0",
+	"description":"server Node.js on Docker",
+	"author": "guillaume.dhaine@epitech.eu",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"express": "^4.16.1"
+	}
+}
