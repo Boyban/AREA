@@ -9,6 +9,11 @@
   "author": "Yohan Le Quere",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.11",
+    "path": "^0.12.7",
+    "request-ip": "^2.1.3"
   }
 }
