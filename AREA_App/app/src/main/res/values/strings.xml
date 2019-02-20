@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">A R E A</string>
+    <string name="sign_in">Sign in</string>
+    <string name="register">Register</string>
+    <string name="forgotPassword"><u>Did you forget your password ?</u></string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+</resources>
