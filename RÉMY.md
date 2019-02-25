@@ -29,8 +29,9 @@ You need to use the JSON format to send information.
 
 #### Basic Sign Up
 
-Method : POST  
-URL : "http://localhost/api/signup/"  
+Method : **POST**  
+URL : http://localhost/api/signup/  
+  
 Data to SEND: ``` javascript {
             fname : String,  
             lname : String,  
