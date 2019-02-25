@@ -13,3 +13,7 @@ We will provide 5 services and 12 actions/reactions components.
 * One Drive
 * Facebook
 * Timer
+
+### Actions
+
+### Reactions
