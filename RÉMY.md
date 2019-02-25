@@ -32,14 +32,14 @@ You need to use the JSON format to send information.
 Method : **POST**  
 URL : http://localhost/api/signup/  
   
-Data to SEND: ``` javascript {
+Data to SEND: ```{
             fname : String,  
             lname : String,  
             mail : String,  
             password : String 
         } ```  
         
-Data to RECEIVE: ```javascript {  
+Data to RECEIVE: ```{  
             register: Boolean,  
             token: {  
                 id: String,  
