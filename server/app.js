@@ -8,6 +8,8 @@ const mongoose =    require('mongoose');
 const requestIp =   require('request-ip');
 const bodyParser =  require('body-parser');
 
+const userCtrl=     require('./controllers/user');
+
 const tools =       require('./tools/tools');
 
 /*
@@ -41,6 +43,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/api', router);
 
-app.listen(8081, function(){
-    tools.lowLevelLog('Server running on 8081.');
+router.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
+
+router.route('/signup').post(userCtrl.signup);
+
+app.listen(8080, function(){
+    tools.lowLevelLog('Server running on 8080.');
 });
