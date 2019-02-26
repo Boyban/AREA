@@ -9,6 +9,8 @@
   "author": "Yohan Le Quere",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.4",
+    "bcrypt-nodejs": "0.0.3",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
