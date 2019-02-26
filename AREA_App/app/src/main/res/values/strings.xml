@@ -1,8 +1,20 @@
 <resources>
     <string name="app_name">A R E A</string>
     <string name="sign_in">Sign in</string>
-    <string name="register">Register</string>
+    <string name="sign_up">Sign up</string>
     <string name="forgotPassword"><u>Did you forget your password ?</u></string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="or">Or</string>
+    <string name="facebook">Se connecter avec Facebook</string>
+    <string name="office">Se connecter avec Office365</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="family_name">Family name</string>
+
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_invalid_confirm_password">This password is incorrect</string>
+    <string name="error_invalid_email">This email is incorrect</string>
+    <string name="error_field_required">This field is required</string>
 </resources>

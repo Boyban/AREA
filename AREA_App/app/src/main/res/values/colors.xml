@@ -8,6 +8,8 @@
     <color name="colorRed">#FF0000</color>
     <color name="colorBlue">#0000FF</color>
     <color name="colorYellow">#FFFF00</color>
-    <color name="colorHint">#C0C7D5</color>
-    <color name="btnSignIn">#3C98F7</color>
+    <color name="colorHint">#767676</color>
+    <color name="colorSignIn">#3C98F7</color>
+    <color name="colorFacebook">#405993</color>
+    <color name="colorOffice">#E55E2F</color>
 </resources>
