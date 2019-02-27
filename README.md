@@ -30,7 +30,7 @@ You need to use the JSON format to send information.
 #### Basic Sign Up
 
 Method : **POST**  
-URL : http://localhost/api/signup/  
+URL : http://localhost:8080/api/signup/  
   
 Data to SEND: ```{
             fname : String,  
@@ -48,3 +48,21 @@ Data to RECEIVE: ```{
             },  
             userId: String  
         }```  
+        
+#### Basic Sign In
+
+Method : **POST**  
+URL : http://localhost:8080/api/signin/  
+
+Data to SEND: ```{ mail: String, password: String }```  
+  
+Data to RECEIVE: ``` { logged: Boolean, userId: String, token: { id: String, since: Number, validity: Number}}```  
+
+
+#### Basic User Info
+
+Method : **GET**  
+URL : http://localhost:8080/api/user/  
+Headers : ```{'Authorization': String}```  
+  
+Data to RECEIVE: ```{fname: String, lname: String, mail: String}``` 
