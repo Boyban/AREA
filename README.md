@@ -58,6 +58,34 @@ Data to SEND: ```{ mail: String, password: String }```
   
 Data to RECEIVE: ``` { logged: Boolean, userId: String, token: { id: String, since: Number, validity: Number}}```  
 
+#### Facebook Sign Up
+
+Method : **POST**  
+URL : http://localhost:8080/api/signupFacebook/  
+  
+Data to SEND: ```{
+            accessToken : String,  
+            userId : String  
+        } ```  
+        
+Data to RECEIVE: ```{  
+            register: Boolean,  
+            token: {  
+                id: String,  
+                since: Number,  
+                validity: Number  
+            },  
+            userId: String  
+        }```  
+
+#### Facebook Sign In
+
+Method : **POST**  
+URL : http://localhost:8080/api/signinFacebook/  
+
+Data to SEND: ```{ accessToken: String, userId: String }```  
+  
+Data to RECEIVE: ``` { logged: Boolean, userId: String, token: { id: String, since: Number, validity: Number}}```  
 
 #### Basic User Info
 
