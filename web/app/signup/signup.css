@@ -1,0 +1,105 @@
+header {
+    min-width: 100vw;
+    height: 75px;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+    background: white;
+    position: fixed;
+}
+
+.left-group {
+    position: absolute;
+    left : 5vw;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.right-group {
+    position: absolute;
+    right: 5vw;
+    margin-top: 15px;
+    display: block;
+}
+
+.left-group .title {
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+}
+
+.right-group .button-sign-in {
+    padding: 10px;
+    border-radius: 100px;
+    width: 100px;
+    color: black;
+    font-weight: bold;
+    background: white;
+}
+
+.container {
+    top: 75px;
+    bottom: 0;
+    min-width: 80vw;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(1, minmax(80vw, 650px));
+    justify-items: center;
+}
+
+.signin-form {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 15px;
+    color: black;
+}
+
+.signin-form .title {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 400%;
+    font-family: "Lato Black";
+    color: black;
+    margin-bottom: 40px;
+}
+
+.user-input {
+    width: 70%;
+    margin-left: 15%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    border: solid 6px #efeeee;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: inherit;
+}
+
+.user-input::placeholder {
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.user-input:focus {
+    border: solid 6px #09f;
+}
+
+.password-forget {
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: Lato;
+    text-align: center;
+}
+
+.button-signin {
+    background-color: #09f;
+    width: 50%;
+    padding: 15px;
+    color: white;
+    border-radius: 50px;
+    margin-top: 20px;
+    font-family: "Lato Black";
+    font-size: 130%;
+    margin-left: 25%;
+    margin-bottom: 40px;
+}

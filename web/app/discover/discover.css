@@ -1,0 +1,138 @@
+header {
+    min-width: 100vw;
+    height: 75px;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+    background: white;
+    position: fixed;
+}
+
+.left-group {
+    position: absolute;
+    left : 5vw;
+    margin-top: 20px;
+}
+
+.left-group .title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.right-group {
+    position: absolute;
+    right: 5vw;
+    margin-top: 15px;
+    display: block;
+}
+
+.right-group .button-logout {
+    padding: 10px;
+    border-radius: 100px;
+    width: 100px;
+    color: white;
+    font-weight: bold;
+}
+
+.button-logout {
+    background: red;
+}
+
+.fill {
+    height: 75px;
+}
+
+.user-info {
+    width: 90vw;
+    background: yellow;
+    margin-top: 5px;
+    margin-left: 5vw;
+    background: rgba(0,0,0, 0.01);
+    border-radius: 10px;
+    box-shadow:  0px 1px 0px 0px rgba(0, 0, 0, 0.05);
+    padding-top: 10px;
+    margin-top: 30px;
+}
+
+.user-info .welcoming-message {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 180%;
+    font-family: Lato;
+}
+
+.user-info .description {
+    font-size: 120%;
+    font-family: Lato;
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 50px;
+}
+
+.user-info .news {
+    text-align: center;
+    font-family: Lato;
+}
+
+.container-log {
+    top: 75px;
+    bottom: 0;
+    min-width: 90vw;
+    position: relative;
+
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 545px));
+}
+
+.container-log .button-log {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.container-log .facebook-centered {
+    height: 40px;
+    padding: 10px;
+    width: 80%;
+    background: #3B5998;
+    border-radius: 50px;
+    align-self: center;
+    color: white;
+}
+
+.container-log .instagram-centered {
+    background: #e1306c;
+    border-radius: 50px;
+    align-self: center;
+    color: white;
+    height: 40px;
+    padding: 10px;
+    width: 80%;
+}
+
+.container-log .google-centered {
+    background: white;
+    border-radius: 50px;
+    border: solid 1px black;
+    align-self: center;
+    color: black;
+    height: 40px;
+    padding: 10px;
+    width: 80%;
+}
+
+.button-log img {
+    height: 100%;
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.button-log p {
+    vertical-align: middle;
+    font-size: 120%;
+    font-family: Lato;
+    margin-top: -2px;
+}

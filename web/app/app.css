@@ -1,0 +1,90 @@
+/* app css stylesheet */
+
+html { height: 100%; }
+body { min-height: 100%; }
+
+button, input[type="submit"], input[type="reset"], input {
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+*:focus {
+    outline: 0 !important;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.page {
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.image-background {
+    width: 100vw;
+    height: 100vh;
+    background: yellow;
+    position: fixed;
+}
+
+.image-background img {
+    width: 100vw;
+    height: 100vh;
+}
+
+.oauth {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.oauth .centered-fb {
+    width: 380px;
+    height: 60px;
+    padding: 10px;
+    background: #3B5998;
+    border-radius: 50px;
+    align-self: center;
+    color: white;
+}
+
+.oauth .centered-office {
+    min-width: 380px;
+    height: 60px;
+    padding: 10px;
+    background: white;
+    border-radius: 50px;
+    align-self: center;
+    color: #f65314;
+    border: solid 1px grey;
+}
+
+.oauth .centered-office img {
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.oauth img {
+    height: 100%;
+    display: inline-block;
+    float: left;
+}
+
+.oauth p {
+    vertical-align: middle;
+    font-size: 130%;
+    font-family: Lato;
+    margin-top: 5px;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}

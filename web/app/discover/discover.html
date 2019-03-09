@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="discover/discover.css">
+
+<div class="page">
+    <header>
+        <div class="left-group">
+            <p class="title">A R E A</p>
+        </div>
+        <div class="right-group">
+            <button class="button-logout" ng-click="logout()">Logout</button>
+        </div>
+    </header>
+
+    <div class="fill">&nbsp;</div>
+
+    <div class="user-info">
+        <p class="welcoming-message">Welcome {{ credentials.fname }} {{ credentials.lname }}</p>
+        <p class="description">You are in your area network. In this Area you are able to manage your social network
+        and automatize some tasks. We are now compatible with Instagram, Facebook and Google.</p>
+        <p class="news"><b>News</b> : We recently update the authentication system and optimize it. Welcome in the new safe Area.</p>
+
+        <div class="container-log">
+            <div class="button-log">
+                <div class="facebook-centered" ng-click="facebook()">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/I/21-leKb-zsL.png">
+                    <p>{{ services.facebook.buttonConnect.text }}</p>
+                </div>
+            </div>
+            <div class="button-log" g-login>
+                <div class="google-centered">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png">
+                    <p>{{ services.google.buttonConnect.text }}</p>
+                </div>
+            </div>
+            <div class="button-log">
+                <div class="instagram-centered" ng-click="instagram()">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/480px-Instagram_icon.png">
+                    <p>{{ services.instagram.buttonConnect.text }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
