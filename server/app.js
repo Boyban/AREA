@@ -52,11 +52,14 @@ router.use(function (req, res, next) {
 });
 
 router.route('/signup').post(userCtrl.signup);
-router.route('/signupOffice').post(userCtrl.signupOffice);
+router.route('/logout').get(userCtrl.logout);
 router.route('/signupFacebook').post(userCtrl.signupFacebook);
 router.route('/signin').post(userCtrl.signin);
 router.route('/signinFacebook').post(userCtrl.signinFacebook);
 router.route('/user').get(tools.auth, userCtrl.user);
+router.route('/registerGoogle').post(userCtrl.registerGoogle);
+router.route('/registerInstagram').post(userCtrl.registerInstagram);
+router.route('/registerFacebook').post(userCtrl.registerFacebook);
 
 app.listen(8080, function(){
     tools.lowLevelLog('Server running on 8080.');

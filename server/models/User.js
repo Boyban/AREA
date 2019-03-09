@@ -9,8 +9,17 @@ var UserSchema = new mongoose.Schema({
     password : String,
     officeId : String,
     Facebook : {
-      token: String,
-      id: String
+        token: String,
+        id: String
+    },
+    Google : {
+        token : String,
+        mail : String,
+        idToken : String,
+        uid : String
+    },
+    Instagram : {
+        token : String
     },
     connectionType: Number,
     tokens : []
