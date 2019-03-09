@@ -61,9 +61,9 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
                 $scope.credentials.fname = res.data.fname;
                 $scope.credentials.lname = res.data.lname;
                 $scope.credentials.mail = res.data.mail;
-                $scope.services.google.buttonConnect.text = (res.data.serviceCd.Google) ? "Disconnect Google account" : "Connect from Google";
-                $scope.services.instagram.buttonConnect.text = (res.data.serviceCd.Instagram) ? "Disconnect Instagram account" : "Connect from Instagram";
-                $scope.services.facebook.buttonConnect.text = (res.data.serviceCd.Facebook) ? "Disconnect Facebook account" : "Connect from Facebook";
+                $scope.services.google.buttonConnect.text = (res.data.serviceCd.Google) ? "Disconnect" : "Connect";
+                $scope.services.instagram.buttonConnect.text = (res.data.serviceCd.Instagram) ? "Disconnect" : "Connect";
+                $scope.services.facebook.buttonConnect.text = (res.data.serviceCd.Facebook) ? "Disconnect" : "Connect";
                 $scope.services.facebook.connected = res.data.serviceCd.Facebook;
                 $scope.services.google.connected = res.data.serviceCd.Google;
                 $scope.services.instagram.connected = res.data.serviceCd.Instagram;
@@ -84,7 +84,7 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
                 }).then(function (res){
                     if (!res.data.logged)
                         $location.path("/");
-                    $scope.services.facebook.buttonConnect.text = "Disconnect Facebook account";
+                    $scope.services.facebook.buttonConnect.text = "Disconnect";
                     $scope.services.facebook.connected = true;
                 });
             });
@@ -110,7 +110,7 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
             }).then(function (res){
                     if (!res.data.logged)
                         $location.path("/");
-                $scope.services.google.buttonConnect.text = "Disconnect Google account";
+                $scope.services.google.buttonConnect.text = "Disconnect";
                 $scope.services.google.connected = true;
 
             });
