@@ -94,3 +94,32 @@ URL : http://localhost:8080/api/user/
 Headers : ```{'Authorization': String}```  
   
 Data to RECEIVE: ```{fname: String, lname: String, mail: String}``` 
+
+### Register Service
+
+#### Facebook
+
+Method : **POST**  
+URL : http://localhost:8080/api/registerFacebook/  
+
+Data to SEND: ```{ accessToken: String, userId: String }```  
+  
+Data to RECEIVE: ``` { logged: Boolean }``` 
+
+#### Google
+
+Method : **POST**  
+URL : http://localhost:8080/api/registerGoogle/  
+
+Data to SEND: ```{ idToken: String, token: String, mail: String, uid: String }```  
+  
+Data to RECEIVE: ``` { logged: Boolean }``` 
+
+#### Instagram
+
+Method : **POST**  
+URL : http://localhost:8080/api/registerFacebook/  
+
+Data to SEND: ```{ token: String }```  
+  
+Data to RECEIVE: ``` { logged: Boolean }``` 
