@@ -44,13 +44,16 @@ header {
 .user-info {
     width: 90vw;
     background: yellow;
-    margin-top: 5px;
     margin-left: 5vw;
     background: rgba(0,0,0, 0.01);
     border-radius: 10px;
     box-shadow:  0px 1px 0px 0px rgba(0, 0, 0, 0.05);
     padding-top: 10px;
     margin-top: 30px;
+    background: url("https://www.mosi.org/wp-content/uploads/2017/08/CLOSED-SIGN-WEB-AG.jpg") no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+    color: white;
 }
 
 .user-info .welcoming-message {
@@ -75,14 +78,113 @@ header {
 }
 
 .container-log {
-    top: 75px;
+    top: 85px;
     bottom: 0;
-    min-width: 90vw;
+    width: 80vw;
+    margin-left: 10vw;
     position: relative;
 
     display: grid;
     grid-gap: 15px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 545px));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 450px));
+}
+
+.container-widget {
+    top: 120px;
+    bottom: 0;
+    width: 90%;
+    position: relative;
+    margin-left: 5%;
+
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 315px));
+}
+
+.widget {
+    display: flex;
+    flex-direction: column;
+    min-height: 450px;
+    width: 100%;
+    border-radius: 10px;
+    border: solid 1px rgba(0,0,0,0.3);
+    box-shadow:  2px 2px 4px 1px rgba(0, 0, 0, 0.4);
+}
+
+.widget .icon {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.widget .icon img {
+    height: 100%;
+    margin-left: 20px;
+}
+
+.widget .desc {
+    text-align: left;
+    font-size: 200%;
+    font-family: "Lato Black";
+    width: 80%;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.widget .action {
+    cursor: pointer;
+    margin-top: auto;
+    height: 45px;
+    padding-top: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-family: "Lato Black";
+    font-size: 120%;
+}
+
+.w-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.w-google {
+    color: black;
+}
+
+.w-instagram {
+    background: #e1306c;
+    color: white;
+}
+
+.w-timer {
+    background: black;
+    color: white;
+}
+
+.w-weather {
+    background: #4FC49F;
+    color: white;
+}
+
+.widget .title {
+    text-align: center;
+    font-family: "Lato";
+    font-size: 150%;
+    margin-top: 20px;
+}
+
+.widget .add {
+    width: 80%;
+    margin-right: 20%;
+    border-radius: 100%;
+    margin-left: 10%;
+    margin-top: 70px;
+    cursor: pointer;
+}
+
+.widget .add img {
+    width: 80%;
+    margin-left: 10%;
 }
 
 .container-log .button-log {
@@ -92,13 +194,14 @@ header {
 }
 
 .container-log .facebook-centered {
-    height: 40px;
+    height: 60px;
     padding: 10px;
     width: 80%;
     background: #3B5998;
     border-radius: 50px;
     align-self: center;
     color: white;
+    vertical-align: middle;
 }
 
 .container-log .instagram-centered {
@@ -106,7 +209,7 @@ header {
     border-radius: 50px;
     align-self: center;
     color: white;
-    height: 40px;
+    height: 60px;
     padding: 10px;
     width: 80%;
 }
@@ -117,7 +220,7 @@ header {
     border: solid 1px black;
     align-self: center;
     color: black;
-    height: 40px;
+    height: 60px;
     padding: 10px;
     width: 80%;
 }
@@ -134,5 +237,6 @@ header {
     vertical-align: middle;
     font-size: 120%;
     font-family: Lato;
-    margin-top: -2px;
+    margin-top: 7px;
+    text-align: center;
 }
