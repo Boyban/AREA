@@ -12,10 +12,12 @@ module.exports = {
     },
     auth: function (req, res, next) {
         User.findOne({"tokens.id" : req.headers.authorization }, function (err, user){
-           if (err || !user)
-               res.json({ logged : false });
-           else
+           if (err || !user) {
+               return res.json({logged: false});
+           }
+           else {
                next();
+           }
         });
     }
 };

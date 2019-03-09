@@ -13,40 +13,20 @@ exports.signup = function(req, res) {
             token: null,
             id: null
         },
+        Instagram : {
+            token : null
+        },
+        Google : {
+            token : null,
+            mail : null,
+            idToken : null,
+            uid : null,
+        },
         connectionType: 0,
         tokens: [{
             validity: 3456000000,
             id: generateToken(45),
             since: Date.now()
-        }]
-    });
-
-    var token = user.tokens[0];
-    User.findOne({ mail : user.mail }, function (err, response){
-        if (response) return (res.json({ register : false, alreadyExist : true }));
-        user.save(function (err){
-            (err) ? res.send(err) : res.json({ register : true, userId : user._id, token : token });
-            tools.lowLevelLog(user.fname + ' ' + user.lname + " created an account");
-        });
-    });
-};
-
-exports.signupOffice = function(req, res) {
-    var user = new User({
-        fname: req.body.fname,
-        lname: req.body.lname,
-        mail: req.body.mail,
-        password: req.body.password,
-        officeId: null,
-        Facebook: {
-            token: null,
-            id: null
-        },
-        connectionType: 1,
-        tokens: [{
-            validity : 3456000000,
-            id : generateToken(45),
-            since : Date.now()
         }]
     });
 
@@ -71,6 +51,15 @@ exports.signupFacebook = function(req, res) {
             token: req.body.accessToken,
             id: req.body.userId
         },
+        Instagram : {
+            token : null
+        },
+        Google : {
+            token : null,
+            mail : null,
+            idToken : null,
+            uid : null,
+        },
         connectionType: 1,
         tokens: [{
             validity : 3456000000,
@@ -87,7 +76,7 @@ exports.signupFacebook = function(req, res) {
         }
         user.fname = fbCred.name.split(' ')[0];
         user.lname = fbCred.name.substr(fbCred.name.split(' ')[0].length + 1, fbCred.name.length);
-
+        user.mail = fbCred.email;
         let token = user.tokens[0];
         User.findOne({mail: user.mail}, function (err, response) {
             if (response) return (res.json({register: false, alreadyExist: true}));
@@ -100,8 +89,6 @@ exports.signupFacebook = function(req, res) {
 };
 
 exports.signin = function (req, res) {
-    console.log(req.body.mail);
-    console.log(req.body.password);
     User.findOne({ mail : req.body.mail }, function (err, user){
         if (err) return res.send(err);
         if (!user) {
@@ -141,11 +128,63 @@ exports.signinFacebook = function (req, res) {
     });
 };
 
+exports.registerGoogle = function(req, res) {
+    User.findOne({ "tokens.id" : req.headers.authorization }, function (err, user){
+      if (err || !user) return res.json({ logged : false });
+      user.Google.mail = req.body.mail;
+      user.Google.uid = req.body.uid;
+      user.Google.idToken = req.body.idToken;
+      user.Google.token = req.body.token;
+      user.save(function (err) {
+          (err) ? res.send(err) : res.json({ logged : true });
+          tools.lowLevelLog(user.fname + ' ' + user.lname + " registered on Google.");
+      });
+  });
+};
+
+exports.registerInstagram = function(req, res) {
+    User.findOne({ "tokens.id" : req.headers.authorization }, function (err, user){
+        if (err || !user) return res.json({ logged : false });
+        user.Instagram.token = req.body.token;
+        user.save(function (err) {
+            (err) ? res.send(err) : res.json({ logged : true });
+            tools.lowLevelLog(user.fname + ' ' + user.lname + " registered on Instagram.");
+        });
+    });
+};
+
+exports.registerFacebook = function(req, res) {
+    User.findOne({ "tokens.id" : req.headers.authorization }, function (err, user){
+        if (err || !user) return res.json({ logged : false });
+        user.Facebook.token = req.body.accessToken;
+        user.Facebook.id = req.body.userId;
+        user.save(function (err) {
+            (err) ? res.send(err) : res.json({ logged : true });
+            tools.lowLevelLog(user.fname + ' ' + user.lname + " registered on Facebook.");
+        });
+    });
+};
 
 exports.user = function (req, res) {
     User.findOne({ "tokens.id" : req.headers.authorization }, function (err, user){
-         if (err) res.json({ logged : false });
-         return res.json({ fname : user.fname, lname : user.lname, mail : user.mail });
+        if (err || !user ) return res.json({ logged : false });
+        let serviceCd = {
+            Instagram : user.Instagram.token !== null,
+            Facebook : user.Facebook.id !== null,
+            Google : user.Google.token !== null
+         };
+         return res.json({ fname : user.fname, lname : user.lname, mail : user.mail, serviceCd : serviceCd, canUnregistredFb : user.connectionType !== 1 });
+    });
+};
+
+exports.logout = function (req, res) {
+    User.findOne({ "tokens.id" : req.headers.authorization }, function (err, user){
+        if (err || !user) return res.json({ logged : false });
+        user.tokens.splice(user.tokens.findIndex(item => item.id === req.headers.authorization), 1);
+        user.save(function (err) {
+            (err) ? res.send(err) : res.json({ logged : true });
+            tools.lowLevelLog(user.fname + ' ' + user.lname + " logout.");
+        });
     });
 };
 

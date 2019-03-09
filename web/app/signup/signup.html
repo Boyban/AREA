@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="signup/signup.css">
+
+<div class="page">
+    <header>
+        <div class="left-group" ng-click="index()">
+            <p class="title">A R E A</p>
+        </div>
+        <div class="right-group">
+            <button class="button-sign-in" ng-click="signin()">Sign in</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="signin-form">
+            <p class="title">Sign up</p>
+            <p class="error">{{ credentials.error }}</p>
+            <input type="text" class="user-input" placeholder="First Name" name="fname" ng-model="credentials.fname"/>
+            <input type="text" class="user-input" placeholder="Last Name" name="lname" ng-model="credentials.lname"/>
+            <input type="email" class="user-input" placeholder="Email" name="email" ng-model="credentials.mail"/>
+            <input type="password" class="user-input" placeholder="Password" name="password" ng-model="credentials.password"/>
+            <input type="password" class="user-input" placeholder="Confirm your password" ng-model="credentials.rpassword"/>
+            <button class="button-signin" ng-click="signup()">Sign up</button>
+            <div class="oauth" ng-click="signupFacebook()">
+                <div class="centered-fb">
+                    <img src="https://i2.wp.com/www.madtrail.com/wp-content/uploads/2018/06/logo-fb.png">
+                    <p>S'inscrire avec Facebook</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 10px; font-family: Lato">Or</p>
+            <div class="oauth" ng-click="signupOffice()">
+                <div class="centered-office">
+                    <img src="https://videotron.com/vtrn/images/products/fr_final/hebergement/office-365/office-365_grande.png">
+                    <p>S'inscrire avec Office365</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
