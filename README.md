@@ -118,7 +118,7 @@ Data to RECEIVE: ``` { logged: Boolean }```
 #### Instagram
 
 Method : **POST**  
-URL : http://localhost:8080/api/registerFacebook/  
+URL : http://localhost:8080/api/registerInstagram/  
 
 Data to SEND: ```{ token: String }```  
   
