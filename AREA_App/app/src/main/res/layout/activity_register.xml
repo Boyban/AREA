@@ -118,7 +118,6 @@
                 android:id="@+id/sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginLeft="2.5dp"
                 android:background="@color/colorSignIn"
                 android:text="@string/sign_up"
@@ -127,39 +126,28 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            >
-
-            <Button
-                android:id="@+id/facebook"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/btn_facebook"
-                android:text="@string/facebook"
-                android:textColor="@color/colorWhite"
-                />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="@string/or"
                 android:textColor="@color/colorBlack"
                 />
 
-            <Button
-                android:id="@+id/office"
-                android:layout_width="250dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/facebook"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/btn_office"
-                android:text="@string/office"
-                android:textColor="@color/colorOffice"
                 />
 
         </LinearLayout>

@@ -1,29 +1,25 @@
 package com.touch.area;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.xml.sax.InputSource;
-import org.xml.sax.XMLReader;
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
@@ -31,9 +27,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private EditText _passwordView;
     Button _signIn = null;
     Button _register = null;
-    Button _facebook = null;
-    Button _office = null;
     TextView _forgotPassword = null;
+
+    //FACEBOOK
+    LoginButton _facebook = null;
+    CallbackManager callbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,27 +43,83 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         _signIn = (Button) findViewById(R.id.sign_in);
         _register = (Button) findViewById(R.id.register);
-        _facebook = (Button) findViewById(R.id.facebook);
-        _office = (Button) findViewById(R.id.office);
+        _facebook = (LoginButton) findViewById(R.id.facebook);
         _forgotPassword = (TextView) findViewById(R.id.forgot_password);
 
         _signIn.setOnClickListener(this);
         _register.setOnClickListener(this);
         _facebook.setOnClickListener(this);
-        _office.setOnClickListener(this);
         _forgotPassword.setOnClickListener(this);
+
+        //FACEBOOK LOGIN
+        callbackManager = CallbackManager.Factory.create();
+        _facebook.setReadPermissions("email");
+
+        /*AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        final boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
+
+        // FACEBOOK AUTO LOGIN
+        if (isLoggedIn) {
+            try {
+                String targetURL = "http://" + Globals.ip + ":8080/api/signinFacebook";
+                String urlParameters = "{\"accessToken\":\"" + accessToken.getToken() +
+                        "\",\"userId\":\"" + accessToken.getUserId() + "\"}";
+                String response = new HttpUrlConnection(this).execute(targetURL, urlParameters).get();
+                Globals.parseResponse(response, "logged");
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        } else {*/
+            //FACEBOOK ONCLICK
+            _facebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+                @Override
+                public void onSuccess(LoginResult loginResult) {
+                    AccessToken accessToken = loginResult.getAccessToken();
+                    try {
+                        String urlParameters = "{\"accessToken\":\"" + accessToken.getToken() +
+                            "\",\"userId\":\"" + accessToken.getUserId() + "\"}";
+                        String response = new HttpUrlConnection(MainActivity.this).execute("signinFacebook",
+                                urlParameters).get(5, TimeUnit.SECONDS);
+                        if (Globals.parseResponse(response, "logged")) {
+                            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                            startActivity(intent);
+                        }
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (TimeoutException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onCancel() {
+                    //TODO Put Cancel Condition
+                }
+
+                @Override
+                public void onError(FacebookException error) {
+                    //TODO PUT Error
+                }
+            });
+        //}
     }
 
     @Override
 	public void onClick(View view) {
-		// TODO Auto-generated method stub.
 		switch (view.getId()) {
             case R.id.sign_in:
             {
-                if (!attemptLogin()) {
-                    Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-                    startActivity(intent);
-                    break;
+                try {
+                    if (!attemptLogin()) {
+                        Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                        startActivity(intent);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 break;
             }
@@ -75,19 +129,21 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 startActivity(intent);
                 break;
             }
-            case R.id.facebook:
-            {
-            }
-            case R.id.office:
-            {
-            }
             case R.id.forgot_password:
             {
+                //TODO FORGOT PASSWORD
+                break;
             }
         }
     }
 
-    private boolean attemptLogin() {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private boolean attemptLogin() throws Exception {
         boolean cancel = false;
 
         _emailView.setError(null);
@@ -107,65 +163,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             _emailView.setError(getString(R.string.error_invalid_email));
             cancel = true;
         }
-        // TODO Call database see if email & password are correct
         if (!cancel) {
-            String urlParameters = "javascript { mail : " + email + ", password : " + password + " }";
-            String response = executePost("http://10.41.168.179:8080/api/signin/",
-                    urlParameters);
-            Log.e("URL REQUEST", response);
+            String urlParameters = "{\"mail\":\"" + email + "\",\"password\":\"" + password + "\"}";
+            String response = new HttpUrlConnection(MainActivity.this).execute("signin",
+                    urlParameters).get(5, TimeUnit.SECONDS);
+            if (!Globals.parseResponse(response, "logged")) {
+                cancel = true;
+            }
         }
         return cancel;
-    }
-
-    public static String executePost(String targetURL, String urlParameters) {
-        HttpURLConnection connection = null;
-
-        try {
-            //Create connection
-            URL url = new URL(targetURL);
-            connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type",
-                    "application/x-www-form-urlencoded");
-            connection.setRequestProperty("charset", "utf-8");
-
-
-            connection.setRequestProperty("Content-Length",
-                    Integer.toString(urlParameters.getBytes().length));
-            connection.setRequestProperty("Content-Language", "en-US");
-
-            connection.setUseCaches (false);
-            connection.setDoOutput(true);
-
-            //Send request
-            Log.e("MESSAGE", urlParameters);
-            DataOutputStream wr = new DataOutputStream (
-                    connection.getOutputStream());
-            wr.writeBytes(urlParameters);
-            wr.close();
-            Log.e("REQUEST", "POST");
-
-            //Get Response
-            InputStream is = connection.getInputStream();
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-            StringBuilder response = new StringBuilder(); // or StringBuffer if Java version 5+
-            String line;
-            while ((line = rd.readLine()) != null) {
-                response.append(line);
-                response.append('\r');
-            }
-            rd.close();
-            Log.e("RESQUEST", "RESPONSE");
-            return response.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.e("error", String.valueOf(e));
-            return null;
-        } finally {
-            if (connection != null) {
-                connection.disconnect();
-            }
-        }
     }
 
     private boolean isEmailValid(String email) {
@@ -176,36 +182,5 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     private boolean isPasswordValid(String password) {
         return password.length() > 4;
-    }
-
-    class HTTPRequest extends AsyncTask<URL, String> {
-
-        private Exception exception;
-
-        protected RSSFeed doInBackground(String... urls) {
-            try {
-                URL url = new URL(urls[0]);
-                SAXParserFactory factory = SAXParserFactory.newInstance();
-                SAXParser parser = factory.newSAXParser();
-                XMLReader xmlreader = parser.getXMLReader();
-                RssHandler theRSSHandler = new RssHandler();
-                xmlreader.setContentHandler(theRSSHandler);
-                InputSource is = new InputSource(url.openStream());
-                xmlreader.parse(is);
-
-                return theRSSHandler.getFeed();
-            } catch (Exception e) {
-                this.exception = e;
-
-                return null;
-            } finally {
-                is.close();
-            }
-        }
-
-        protected void onPostExecute(RSSFeed feed) {
-            // TODO: check this.exception
-            // TODO: do something with the feed
-        }
     }
 }
