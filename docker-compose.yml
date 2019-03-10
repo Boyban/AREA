@@ -1,23 +1,30 @@
 version: '3'
 services:
-        client_web:
-                container_name: web
+        web:
+                container_name: client_web
                 build: ./web/
                 ports:
                         - "8081:8081"
                 depends_on:
                         - server
                         - mobile
-        mobile_user:
-                container_name: mobile
-                build: ./mobile_user/
+        mobile:
+                container_name: mobile_user
+                build: ./mobile/
                 depends_on:
                         - server
         server:
                 container_name: server
+                restart: always
                 build: ./server/
                 ports:
                         - "8080:8080"
+                links:
+                        - mongo
         mongo:
                 container_name: mongo
                 image: mongo
+                volumes:
+                        - ./data:/data/db
+                ports:
+                        - "27017:27017"
