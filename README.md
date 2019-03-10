@@ -8,16 +8,19 @@ We will provide 5 services and 12 actions/reactions components.
 
 ### Services
 
-* Intra Epitech
-* Office 365 Mail
-* One Drive
 * Facebook
+* Google
+* Instagram
+* Weather
 * Timer
 
 ### Actions
 
+* Reach a picked time.
+
 ### Reactions
 
+* Send an email
 
 
 ## API
