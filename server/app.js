@@ -7,8 +7,10 @@ const app =         express();
 const mongoose =    require('mongoose');
 const requestIp =   require('request-ip');
 const bodyParser =  require('body-parser');
+const fs = require('fs');
 
 const userCtrl=     require('./controllers/user');
+const widgetCtrl =  require('./controllers/widget');
 
 const tools =       require('./tools/tools');
 
@@ -26,6 +28,7 @@ const connectWithRetry = () => {
       useNewUrlParser: true
   }).then(function (){
       tools.lowLevelLog("Database set up.");
+      widgetCtrl.run();
   }).catch(function (err) {
       tools.highLevelLog(err);
       setTimeout(connectWithRetry, 1000)
@@ -60,7 +63,32 @@ router.route('/user').get(tools.auth, userCtrl.user);
 router.route('/registerGoogle').post(userCtrl.registerGoogle);
 router.route('/registerInstagram').post(userCtrl.registerInstagram);
 router.route('/registerFacebook').post(userCtrl.registerFacebook);
+router.route('/addWidget').post(widgetCtrl.add);
 
 app.listen(8080, function(){
     tools.lowLevelLog('Server running on 8080.');
+});
+
+
+app.get('/about.json', async function(req, res){
+    let ip = requestIp.getClientIp(req);
+
+    var apt = {
+        client: {
+            host: ip
+        },
+        server: {
+            current_time: null,
+            services: [{
+                name: "Timer",
+                actions: [{
+                    id: 0,
+                    name: "alarm",
+                    description: "it's time"
+                }]
+            }]
+        }
+    };
+
+    res.json(apt);
 });

@@ -22,7 +22,8 @@ var UserSchema = new mongoose.Schema({
         token : String
     },
     connectionType: Number,
-    tokens : []
+    tokens : [],
+    widgets : []
 });
 
 /*

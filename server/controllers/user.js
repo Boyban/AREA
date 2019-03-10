@@ -1,6 +1,7 @@
 var User = require('../models/User');
 var tools = require('../tools/tools');
-var FB = require("fb");
+var FB = require("fb"),
+    fb = new FB.Facebook({ appId: '299009090787184', appSecret: 'd1e4d684d6fe3d75d2fbbd2809573c68'});
 
 exports.signup = function(req, res) {
     var user = new User({
@@ -27,7 +28,8 @@ exports.signup = function(req, res) {
             validity: 3456000000,
             id: generateToken(45),
             since: Date.now()
-        }]
+        }],
+        widgets : []
     });
 
     var token = user.tokens[0];
@@ -65,11 +67,15 @@ exports.signupFacebook = function(req, res) {
             validity : 3456000000,
             id : generateToken(45),
             since : Date.now()
-        }]
+        }],
+        widgets : []
     });
 
-    FB.setAccessToken(req.body.accessToken);
-    FB.api('/me?fields=name,email', 'get', function (fbCred) {
+    fb.setAccessToken(req.body.accessToken);
+    fb.api('/' + req.body.userId + '/feed?fields=message=Hello Fans!', 'post', function (zz){
+        console.log(zz);
+    });
+    fb.api('/me?fields=email,name,first_name,last_name', 'get', function (fbCred) {
         if (!res || res.error) {
             tools.criticLevelLog(!res ? 'error occurred' : res.error);
             return res.json({register: false});
@@ -173,7 +179,7 @@ exports.user = function (req, res) {
             Facebook : user.Facebook.id !== null,
             Google : user.Google.token !== null
          };
-         return res.json({ fname : user.fname, lname : user.lname, mail : user.mail, serviceCd : serviceCd, canUnregistredFb : user.connectionType !== 1 });
+         return res.json({ fname : user.fname, lname : user.lname, mail : user.mail, serviceCd : serviceCd, canUnregistredFb : user.connectionType !== 1, widgets: user.widgets });
     });
 };
 

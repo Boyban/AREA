@@ -75,6 +75,7 @@ angular.module('myApp.signup', ['ngRoute', 'ngCookies', 'facebook'])
                     url: "http://localhost:8080/api/signupFacebook",
                     data : Object.toparams({ accessToken: response.authResponse.accessToken, userId: response.authResponse.userID })
                 }).then(function (res){
+                    Facebook.api('/me/permissions', 'delete', null);
                     if (res.data.alreadyExist) {
                         $scope.credentials.error = "User already registred";
                     } else if (res.data.register) {
