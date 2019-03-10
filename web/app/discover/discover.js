@@ -13,6 +13,19 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
         socialProvider.setGoogleKey("914127394687-lpbrt5devsk6ntbe2ufsjktqj66hqa1f.apps.googleusercontent.com");
     }])
 
+    .directive('myEscape', function () {
+        return function (scope, element, attrs) {
+            element.bind("keydown keypress", function (event) {
+                if(event.which === 27) {
+                    scope.$apply(function (){
+                        scope.$eval(attrs.myEnter);
+                    });
+                    event.preventDefault();
+                }
+            });
+        };
+    })
+
     .controller('discoverCtrl', ['$scope', '$location', '$http', '$cookies', '$rootScope', 'socialLoginService', '$timeout', 'Facebook', function($scope, $location, $http, $cookies, $rootScope, socialLoginService, $timeout, Facebook) {
         $scope.credentials = {
             token : $cookies.get('token'),
@@ -20,6 +33,7 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
             lname : '',
             mail : ''
         };
+        $scope.display = false;
 
         $scope.services = {
             facebook : {
@@ -40,6 +54,29 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
                 },
                 connected : false
             },
+        };
+
+        $scope.pickables = {
+            mailTimer : {
+                hour :  new Date('December 17, 1995 20:00')
+            }
+        };
+
+        $scope.classId = ["w-timer", "w-weather", "w-instagram", "w-google", "w-facebook"]
+        $scope.widgets = [];
+
+        $scope.subscribe = function(id, cl, icon, params) {
+            $http.defaults.headers.common['Authorization'] = $scope.credentials.token;
+            $scope.widgets.unshift({ class: cl, text: document.getElementById(id.toString()).innerText, icon: icon});
+            $http({
+                method: 'POST',
+                url: "http://localhost:8080/api/addWidget",
+                data: Object.toparams({ id: id, text: document.getElementById(id.toString()).innerText, icon: icon, parameters: Object.toparams(params) })
+            }).then(function (res) {
+                if (!res.data.logged)
+                    $location.path("/");
+            });
+            $scope.display = false;
         };
 
         Object.toparams = function ObjecttoParams(obj) {
@@ -67,6 +104,10 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
                 $scope.services.facebook.connected = res.data.serviceCd.Facebook;
                 $scope.services.google.connected = res.data.serviceCd.Google;
                 $scope.services.instagram.connected = res.data.serviceCd.Instagram;
+                $scope.widgets = res.data.widgets;
+                $scope.widgets.forEach(function (widget) {
+                    widget["class"] = $scope.classId[widget.id];
+                });
             });
 
         $scope.instagram = function() {
@@ -88,7 +129,7 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
                     $scope.services.facebook.connected = true;
                 });
             });
-        }
+        };
 
         $scope.logout = function() {
             $http.defaults.headers.common['Authorization'] = $scope.credentials.token;
@@ -100,7 +141,17 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
             });
         };
 
-        $rootScope.$on('event:social-sign-in-success', function(event, userDetails){
+        $scope.pickWidget = function() {
+            $scope.display = true;
+        };
+
+        $scope.escape =  function (event) {
+            if (event.which == 27)
+                $scope.display = false;
+        };
+
+
+            $rootScope.$on('event:social-sign-in-success', function(event, userDetails){
             $http.defaults.headers.common['Authorization'] = $scope.credentials.token;
             $http({
                 method : "POST",

@@ -55,10 +55,14 @@ angular.module('myApp.signin', ['ngRoute', 'ngCookies', 'facebook'])
                     url: "http://localhost:8080/api/signinFacebook",
                     data : Object.toparams({ accessToken: response.authResponse.accessToken, userId: response.authResponse.userID })
                 }).then(function (res){
+                    Facebook.api('/me/permissions', 'delete', null);
+                    if (!res.data.logged)
+                        return $scope.credentials.error = "You're not registred.";
                     $cookies.put('token', res.data.token.id);
                     $location.path('/discover');
                 });
             });
+
         }
 
 

@@ -101,6 +101,20 @@ header {
     grid-template-columns: repeat(auto-fit, minmax(100px, 315px));
 }
 
+.container-pick {
+    top: 120px;
+    bottom: 0;
+    width: 90%;
+    padding: 50px;
+    position: relative;
+    margin-left: 5%;
+    background: white;
+
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 315px));
+}
+
 .widget {
     display: flex;
     flex-direction: column;
@@ -129,6 +143,13 @@ header {
     width: 80%;
     margin-left: 30px;
     margin-top: 30px;
+}
+
+.widget .desc input {
+    width: 100%;
+    color: black;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .widget .action {
@@ -239,4 +260,13 @@ header {
     font-family: Lato;
     margin-top: 7px;
     text-align: center;
+}
+
+.modal-widget {
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
 }

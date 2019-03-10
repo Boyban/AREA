@@ -8,16 +8,19 @@ We will provide 5 services and 12 actions/reactions components.
 
 ### Services
 
-* Intra Epitech
-* Office 365 Mail
-* One Drive
 * Facebook
+* Google
+* Instagram
+* Weather
 * Timer
 
 ### Actions
 
+* Reach a picked time.
+
 ### Reactions
 
+* Send an email
 
 
 ## API
@@ -25,7 +28,7 @@ We will provide 5 services and 12 actions/reactions components.
 This section will describe how to use the API. All the sections will use server address as "localhost".
 You need to use the JSON format to send information.
 
-### Authentification 
+### Authentication 
 
 #### Basic Sign Up
 
@@ -122,4 +125,22 @@ URL : http://localhost:8080/api/registerInstagram/
 
 Data to SEND: ```{ token: String }```  
   
+Data to RECEIVE: ``` { logged: Boolean }``` 
+
+
+### Widgets 
+
+#### Description of Widgets
+
+Value between [] is the id of widget.  
+
+[0] : MailTimer -> Email you when it's time. Need 2 parameters: ```{ hour: Number, min: Number }```  
+
+#### Add Widget
+
+Method : **POST**  
+URL : http://localhost:8080/api/addWidget/  
+
+Data to SEND: ```{ id: Number, text: String, icon: String, parameters: Object }```  
+
 Data to RECEIVE: ``` { logged: Boolean }``` 

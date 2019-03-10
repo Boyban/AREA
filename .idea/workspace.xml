@@ -2,23 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f8bd535-8183-407d-a68f-ec4c55f8edc1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tools/tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tools/tools.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/angular-seed" beforeDir="false" afterPath="$PROJECT_DIR$/web/angular-seed" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/angular-seed/app/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/angular-seed/app/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/angular-seed/app/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/angular-seed/app/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/angular-seed/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/angular-seed/app/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/angular-seed/app/view1/view1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/angular-seed/app/view1/view1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/angular-seed/app/view1/view1.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/angular-seed/app/view2/view2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/angular-seed/app/view2/view2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/angular-seed/app/view2/view2.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/angular-seed/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/angular-seed/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/angular-seed/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/angular-seed/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/view1/view1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/view1/view1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/view1/view1.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/view2/view2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/view2/view2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/view2/view2.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +31,7 @@
     <session id="824681578">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.15" value="1" />
@@ -38,18 +39,19 @@
           <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.19" value="2" />
           <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="28" />
-          <entry key="html" value="29" />
-          <entry key="js" value="71" />
-          <entry key="json" value="7" />
+          <entry key="css" value="30" />
+          <entry key="html" value="31" />
+          <entry key="js" value="82" />
+          <entry key="json" value="8" />
           <entry key="lock" value="2" />
           <entry key="md" value="2" />
           <entry key="svg" value="1" />
@@ -57,10 +59,10 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="28" />
-          <entry key="HTML" value="29" />
-          <entry key="JSON" value="7" />
-          <entry key="JavaScript" value="71" />
+          <entry key="CSS" value="30" />
+          <entry key="HTML" value="31" />
+          <entry key="JSON" value="8" />
+          <entry key="JavaScript" value="82" />
           <entry key="Markdown" value="2" />
           <entry key="SVG" value="1" />
           <entry key="yarn.lock" value="2" />
@@ -68,18 +70,18 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="3046" />
-          <entry key="html" value="3748" />
-          <entry key="js" value="13038" />
-          <entry key="json" value="36" />
+          <entry key="css" value="4173" />
+          <entry key="html" value="4947" />
+          <entry key="js" value="17268" />
+          <entry key="json" value="191" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="3046" />
-          <entry key="HTML" value="3748" />
-          <entry key="JSON" value="36" />
-          <entry key="JavaScript" value="13038" />
+          <entry key="CSS" value="4173" />
+          <entry key="HTML" value="4947" />
+          <entry key="JSON" value="191" />
+          <entry key="JavaScript" value="17268" />
         </counts>
       </usages-collector>
     </session>
@@ -87,46 +89,69 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/angular-seed/app/discover/discover.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/angular-seed/app/discover/discover.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="110" selection-start-line="5" selection-start-column="110" selection-end-line="5" selection-end-column="110" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/angular-seed/app/signin/signin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/angular-seed/app/signup/signup.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="573">
-              <caret line="77" selection-start-line="77" selection-end-line="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/controllers/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="182" column="100" selection-start-line="182" selection-start-column="100" selection-end-line="182" selection-end-column="100" />
+            <state relative-caret-position="529">
+              <caret line="74" column="78" selection-start-line="74" selection-start-column="78" selection-end-line="74" selection-end-column="78" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/_about.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/app/signin/signin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="551">
+              <caret line="57" column="68" lean-forward="true" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/app/signup/signup.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="507">
+              <caret line="77" column="68" selection-start-line="77" selection-start-column="68" selection-end-line="77" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/app/discover/discover.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="119" column="10" lean-forward="true" selection-start-line="119" selection-start-column="10" selection-end-line="119" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/app/discover/discover.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="609">
+              <caret line="76" column="235" selection-start-line="76" selection-start-column="235" selection-end-line="76" selection-end-column="235" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/models/Widget.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/controllers/widget.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
             </state>
           </provider>
         </entry>
@@ -134,44 +159,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/models/User.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="19" selection-end-column="6" />
+            <state relative-caret-position="550">
+              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/tools/tools.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/angular-seed/app/index/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/angular-seed/app/discover/discover.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2596">
-              <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
+            <state relative-caret-position="829">
+              <caret line="88" column="5" lean-forward="true" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -194,10 +192,11 @@
       <find>color</find>
       <find>Facebook</find>
       <find>init</find>
+      <find>console</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/web/angular-seed" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -224,17 +223,26 @@
         <option value="$PROJECT_DIR$/web/angular-seed/app/signup/signup.html" />
         <option value="$PROJECT_DIR$/web/angular-seed/app/signin/signin.html" />
         <option value="$PROJECT_DIR$/web/angular-seed/app/index/index.css" />
-        <option value="$PROJECT_DIR$/web/angular-seed/app/discover/discover.css" />
         <option value="$PROJECT_DIR$/web/angular-seed/app/index.html" />
         <option value="$PROJECT_DIR$/web/angular-seed/app/signin/signin.js" />
-        <option value="$PROJECT_DIR$/server/models/User.js" />
         <option value="$PROJECT_DIR$/web/angular-seed/app/index/index.js" />
         <option value="$PROJECT_DIR$/server/tools/tools.js" />
         <option value="$PROJECT_DIR$/web/angular-seed/app/signup/signup.js" />
-        <option value="$PROJECT_DIR$/server/controllers/user.js" />
-        <option value="$PROJECT_DIR$/server/app.js" />
-        <option value="$PROJECT_DIR$/web/angular-seed/app/discover/discover.html" />
         <option value="$PROJECT_DIR$/web/angular-seed/app/discover/discover.js" />
+        <option value="$PROJECT_DIR$/web/angular-seed/app/discover/discover.css" />
+        <option value="$PROJECT_DIR$/web/angular-seed/app/discover/discover.html" />
+        <option value="$PROJECT_DIR$/web/app/discover/discover.css" />
+        <option value="$PROJECT_DIR$/server/models/User.js" />
+        <option value="$PROJECT_DIR$/web/app/discover/discover.html" />
+        <option value="$PROJECT_DIR$/server/models/Widget.js" />
+        <option value="$PROJECT_DIR$/web/app/signin/signin.js" />
+        <option value="$PROJECT_DIR$/web/app/signup/signup.js" />
+        <option value="$PROJECT_DIR$/server/controllers/widget.js" />
+        <option value="$PROJECT_DIR$/web/app/discover/discover.js" />
+        <option value="$PROJECT_DIR$/server/controllers/user.js" />
+        <option value="$PROJECT_DIR$/server/about.json" />
+        <option value="$PROJECT_DIR$/server/_about.json" />
+        <option value="$PROJECT_DIR$/server/app.js" />
       </list>
     </option>
   </component>
@@ -246,26 +254,26 @@
   </component>
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/server/node_modules" />
-    <handled-path value="$PROJECT_DIR$/web/angular-seed/node_modules" />
+    <handled-path value="$PROJECT_DIR$/web/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
       <path value="$PROJECT_DIR$/package.json" />
       <path value="$PROJECT_DIR$/server/package.json" />
-      <path value="$PROJECT_DIR$/web/angular-seed/app/bower_components/angular-cookies/package.json" />
-      <path value="$PROJECT_DIR$/web/angular-seed/app/bower_components/angular-facebook/package.json" />
-      <path value="$PROJECT_DIR$/web/angular-seed/app/bower_components/angular/package.json" />
-      <path value="$PROJECT_DIR$/web/angular-seed/app/bower_components/angularjs-social-login/package.json" />
-      <path value="$PROJECT_DIR$/web/angular-seed/app/lib/angular-cookies/package.json" />
-      <path value="$PROJECT_DIR$/web/angular-seed/app/lib/angular-loader/package.json" />
-      <path value="$PROJECT_DIR$/web/angular-seed/app/lib/angular-mocks/package.json" />
-      <path value="$PROJECT_DIR$/web/angular-seed/app/lib/angular-route/package.json" />
-      <path value="$PROJECT_DIR$/web/angular-seed/app/lib/angular/package.json" />
-      <path value="$PROJECT_DIR$/web/angular-seed/bower_components/adal-angular/package.json" />
-      <path value="$PROJECT_DIR$/web/angular-seed/bower_components/angular-facebook/package.json" />
-      <path value="$PROJECT_DIR$/web/angular-seed/bower_components/angular/package.json" />
-      <path value="$PROJECT_DIR$/web/angular-seed/bower_components/angularjs-social-login/package.json" />
-      <path value="$PROJECT_DIR$/web/angular-seed/package.json" />
+      <path value="$PROJECT_DIR$/web/app/bower_components/angular-cookies/package.json" />
+      <path value="$PROJECT_DIR$/web/app/bower_components/angular-facebook/package.json" />
+      <path value="$PROJECT_DIR$/web/app/bower_components/angular/package.json" />
+      <path value="$PROJECT_DIR$/web/app/bower_components/angularjs-social-login/package.json" />
+      <path value="$PROJECT_DIR$/web/app/lib/angular-cookies/package.json" />
+      <path value="$PROJECT_DIR$/web/app/lib/angular-loader/package.json" />
+      <path value="$PROJECT_DIR$/web/app/lib/angular-mocks/package.json" />
+      <path value="$PROJECT_DIR$/web/app/lib/angular-route/package.json" />
+      <path value="$PROJECT_DIR$/web/app/lib/angular/package.json" />
+      <path value="$PROJECT_DIR$/web/bower_components/adal-angular/package.json" />
+      <path value="$PROJECT_DIR$/web/bower_components/angular-facebook/package.json" />
+      <path value="$PROJECT_DIR$/web/bower_components/angular/package.json" />
+      <path value="$PROJECT_DIR$/web/bower_components/angularjs-social-login/package.json" />
+      <path value="$PROJECT_DIR$/web/package.json" />
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
@@ -282,8 +290,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -296,38 +304,6 @@
               <item name="AREA" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="AREA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AREA" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AREA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AREA" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AREA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AREA" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="angular-seed" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AREA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AREA" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="angular-seed" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AREA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AREA" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="angular-seed" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="signup" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -339,7 +315,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551341038556" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552250802804" />
     <property name="last_opened_file_path" value="$USER_HOME$/DigitOwl/ionic3-movie-app" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -386,18 +362,19 @@
       <workItem from="1551620274235" duration="8405000" />
       <workItem from="1551711018770" duration="9832000" />
       <workItem from="1551875864244" duration="318000" />
-      <workItem from="1552083745223" duration="12357000" />
+      <workItem from="1552083745223" duration="19875000" />
+      <workItem from="1552145238333" duration="20655000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103919000" />
+    <option name="totallyTimeSpent" value="132092000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21195352" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21416713" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -461,13 +438,18 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/models/User.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/area/public/index.html" />
-    <entry file="file://$PROJECT_DIR$/web/area/README.md" />
-    <entry file="file://$PROJECT_DIR$/web/area/yarn.lock" />
-    <entry file="file://$PROJECT_DIR$/web/area/public/manifest.json" />
-    <entry file="file://$PROJECT_DIR$/web/area/package.json" />
-    <entry file="file://$PROJECT_DIR$/web/area/src/index.css" />
     <entry file="file://$PROJECT_DIR$/web/area/src/App.test.js" />
     <entry file="file://$PROJECT_DIR$/web/area/src/serviceWorker.js" />
     <entry file="file://$PROJECT_DIR$/web/area/src/App.css" />
@@ -483,113 +465,29 @@
     <entry file="file://$PROJECT_DIR$/web/area/src/components/Signup.js" />
     <entry file="file://$PROJECT_DIR$/web/angular-seed/app/view2/view2.js" />
     <entry file="file://$PROJECT_DIR$/web/angular-seed/app/view2/view2.html" />
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/index-async.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/index-async.html" />
     <entry file="file://$PROJECT_DIR$/web/angular-seed/app/view1/view1.spec.js" />
     <entry file="file://$PROJECT_DIR$/web/angular-seed/app/view1/view1.html" />
     <entry file="file://$PROJECT_DIR$/web/angular-seed/app/view1/view1.js" />
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/signup/signup.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" selection-start-line="16" selection-end-line="36" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/core/version/version.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/signin/signin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/bower_components/angular-facebook/lib/angular-facebook.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5033">
-          <caret line="233" column="36" selection-start-line="233" selection-start-column="32" selection-end-line="233" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/signup/signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/index/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1408">
-          <caret line="64" column="18" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/signin/signin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="29" column="126" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="126" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/index/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="983">
-          <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/bower_components/angularjs-social-login/angularjs-social-login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="195" selection-start-line="195" selection-end-line="195" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="62" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/discover/discover.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2596">
-          <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/index/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/signup/signup.css" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/core/version/version.js" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/package.json" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/signin/signin.css" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/bower_components/angular-facebook/lib/angular-facebook.js" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/signup/signup.html" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/index/index.html" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/app.css" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/signin/signin.html" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/index/index.css" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/bower_components/angularjs-social-login/angularjs-social-login.js" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/app.js" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/index.html" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/index/index.js" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/signup/signup.js" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/signin/signin.js" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/discover/discover.html" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/discover/discover.css" />
+    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/discover/discover.js" />
     <entry file="file://$PROJECT_DIR$/server/tools/tools.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -597,52 +495,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/signup/signup.js">
+    <entry file="file://$PROJECT_DIR$/web/app/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/app/discover/discover.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="122" column="19" selection-start-line="122" selection-start-column="19" selection-end-line="122" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/app/discover/discover.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="76" column="235" selection-start-line="76" selection-start-column="235" selection-end-line="76" selection-end-column="235" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/app/signin/signin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="57" column="68" lean-forward="true" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/app/signup/signup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="77" column="68" selection-start-line="77" selection-start-column="68" selection-end-line="77" selection-end-column="68" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/models/User.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="19" selection-end-column="6" />
+        <state relative-caret-position="550">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/widget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/Widget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/app/discover/discover.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="119" column="10" lean-forward="true" selection-start-line="119" selection-start-column="10" selection-end-line="119" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/controllers/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="182" column="100" selection-start-line="182" selection-start-column="100" selection-end-line="182" selection-end-column="100" />
+        <state relative-caret-position="529">
+          <caret line="74" column="78" selection-start-line="74" selection-start-column="78" selection-end-line="74" selection-end-column="78" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/_about.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/server/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/discover/discover.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/signin/signin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/angular-seed/app/discover/discover.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="110" selection-start-line="5" selection-start-column="110" selection-end-line="5" selection-end-column="110" />
+        <state relative-caret-position="829">
+          <caret line="88" column="5" lean-forward="true" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
         </state>
       </provider>
     </entry>
