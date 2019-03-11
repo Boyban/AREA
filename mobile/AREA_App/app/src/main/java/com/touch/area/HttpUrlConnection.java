@@ -33,7 +33,7 @@ public class HttpUrlConnection extends AsyncTask<String, Void, String> {
 
         if ((strings[0] != null || strings[1] != null)
                 || (strings[0].isEmpty() || strings[1].isEmpty())) {
-            String targetURL = "http://" + Globals.ip + ":8080/api/" + strings[0];
+            String targetURL = "http://" + Globals.getIp() + ":8080/api/" + strings[0];
             String json = strings[1];
             HttpURLConnection connection = null;
 

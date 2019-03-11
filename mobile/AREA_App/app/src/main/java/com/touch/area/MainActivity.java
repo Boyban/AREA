@@ -11,12 +11,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
+import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -53,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         //FACEBOOK LOGIN
         callbackManager = CallbackManager.Factory.create();
-        _facebook.setReadPermissions("email");
+        _facebook.setReadPermissions(Arrays.asList("public_profile", "user_friends"));
 
         /*AccessToken accessToken = AccessToken.getCurrentAccessToken();
         final boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
@@ -76,7 +80,30 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             _facebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                 @Override
                 public void onSuccess(LoginResult loginResult) {
+                    AccessTokenTracker accessTokenTracker = new AccessTokenTracker() {
+                        @Override
+                        protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken,
+                                                                   AccessToken currentAccessToken) {
+                            Profile.fetchProfileForCurrentAccessToken();
+                            AccessToken.setCurrentAccessToken(currentAccessToken);
+
+                        }
+                    };
+
+                    accessTokenTracker.startTracking();
+                    ProfileTracker profileTracker = new ProfileTracker() {
+                        @Override
+                        protected void onCurrentProfileChanged(Profile profile, Profile profile1) {
+
+                        }
+                    };
+                    profileTracker.startTracking();
+
+                    //GET ACCESS TOKEN & USER PROFILE
                     AccessToken accessToken = loginResult.getAccessToken();
+                    Profile profile = Profile.getCurrentProfile();
+                    if (profile != null)
+                        Globals.setName(profile.getName());
                     try {
                         String urlParameters = "{\"accessToken\":\"" + accessToken.getToken() +
                             "\",\"userId\":\"" + accessToken.getUserId() + "\"}";

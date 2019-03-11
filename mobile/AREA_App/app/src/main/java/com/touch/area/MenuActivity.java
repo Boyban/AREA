@@ -9,17 +9,18 @@ import android.view.MenuItem;
 
 public class MenuActivity extends AppCompatActivity {
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_logout, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_logout, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
