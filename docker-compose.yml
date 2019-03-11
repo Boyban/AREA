@@ -1,6 +1,6 @@
 version: '3'
 services:
-        web:
+        client_web:
                 container_name: client_web
                 build: ./web/
                 ports:
@@ -8,9 +8,8 @@ services:
                 depends_on:
                         - server
                         - mobile
-        mobile:
+        mobile_user:
                 container_name: mobile_user
-                build: ./mobile/
                 depends_on:
                         - server
         server:
