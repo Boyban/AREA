@@ -6,6 +6,27 @@ The goal of the Area project is to provide an social pool with somes services. T
 
 We will provide 5 services and 12 actions/reactions components.
 
+Here is a little description of technologies used in this project.
+
+##### Server 
+
+Language : Javascript  
+Framework : NodeJS  
+BDD : MongoDB with mongoose  
+
+##### Web Client
+
+Language : HTML /  Javascript  
+Framework : AngularJS  
+
+##### Mobile Client
+
+Language : JAVA  
+
+#### How to run it ?
+
+You need to launch ```docker-compose build && docker-compose up```.
+
 ### Services
 
 * Facebook
@@ -17,6 +38,7 @@ We will provide 5 services and 12 actions/reactions components.
 ### Actions
 
 * Reach a picked time.
+* Check temperature in a city x 2
 
 ### Reactions
 
@@ -103,7 +125,8 @@ Data to RECEIVE: ```{fname: String, lname: String, mail: String}```
 #### Facebook
 
 Method : **POST**  
-URL : http://localhost:8080/api/registerFacebook/  
+URL : http://localhost:8080/api/registerFacebook/ 
+Headers : ```{'Authorization': String}``` 
 
 Data to SEND: ```{ accessToken: String, userId: String }```  
   
@@ -113,6 +136,7 @@ Data to RECEIVE: ``` { logged: Boolean }```
 
 Method : **POST**  
 URL : http://localhost:8080/api/registerGoogle/  
+Headers : ```{'Authorization': String}``` 
 
 Data to SEND: ```{ idToken: String, token: String, mail: String, uid: String }```  
   
@@ -147,7 +171,18 @@ Services ID List :
 
 Method : **POST**  
 URL : http://localhost:8080/api/addWidget/  
+Headers : ```{'Authorization': String}``` 
 
 Data to SEND: ```{ id: Number, text: String, icon: String, parameters: Object }```  
+
+Data to RECEIVE: ``` { logged: Boolean }``` 
+
+#### Remove Widget
+
+Method : **POST**  
+URL : http://localhost:8080/api/unsubscribe/  
+Headers : ```{'Authorization': String}``` 
+
+Data to SEND: ```{ text: String }```  
 
 Data to RECEIVE: ``` { logged: Boolean }``` 
