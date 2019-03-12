@@ -132,9 +132,16 @@ Data to RECEIVE: ``` { logged: Boolean }```
 
 #### Description of Widgets
 
-Value between [] is the id of widget.  
+Value between first [] is the id of widget.  
+Value between second [] is the services ID of widget.  
 
-[0] : MailTimer -> Email you when it's time. Need 2 parameters: ```{ hour: Number, min: Number }```  
+Services ID List : 
+* 0 : Timer
+* 1 : Weather
+
+[0][0] : MailTimer -> Email you when it's time. Need 2 parameters: ```{ hour: Number, min: Number }```  
+[1][1] : MailWeaherU -> Email you when the weather in a location is under the temperature. Need 2 parameters: ```{ temp: Number, loc: String }```  
+[1] : MailWeatherO -> Email you when the weather in a location is over the temperature. Need 2 parameters: ```{ temp: Number, loc: String }```  
 
 #### Add Widget
 
