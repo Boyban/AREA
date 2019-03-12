@@ -103,7 +103,8 @@ Data to RECEIVE: ```{fname: String, lname: String, mail: String}```
 #### Facebook
 
 Method : **POST**  
-URL : http://localhost:8080/api/registerFacebook/  
+URL : http://localhost:8080/api/registerFacebook/ 
+Headers : ```{'Authorization': String}``` 
 
 Data to SEND: ```{ accessToken: String, userId: String }```  
   
@@ -113,6 +114,7 @@ Data to RECEIVE: ``` { logged: Boolean }```
 
 Method : **POST**  
 URL : http://localhost:8080/api/registerGoogle/  
+Headers : ```{'Authorization': String}``` 
 
 Data to SEND: ```{ idToken: String, token: String, mail: String, uid: String }```  
   
@@ -147,7 +149,18 @@ Services ID List :
 
 Method : **POST**  
 URL : http://localhost:8080/api/addWidget/  
+Headers : ```{'Authorization': String}``` 
 
 Data to SEND: ```{ id: Number, text: String, icon: String, parameters: Object }```  
+
+Data to RECEIVE: ``` { logged: Boolean }``` 
+
+#### Remove Widget
+
+Method : **POST**  
+URL : http://localhost:8080/api/unsubscribe/  
+Headers : ```{'Authorization': String}``` 
+
+Data to SEND: ```{ text: String }```  
 
 Data to RECEIVE: ``` { logged: Boolean }``` 
