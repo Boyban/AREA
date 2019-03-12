@@ -23,6 +23,10 @@ Framework : AngularJS
 
 Language : JAVA  
 
+#### How to run it ?
+
+You need to launch ```docker-compose build && docker-compose up```.
+
 ### Services
 
 * Facebook
@@ -34,6 +38,7 @@ Language : JAVA
 ### Actions
 
 * Reach a picked time.
+* Check temperature in a city x 2
 
 ### Reactions
 
