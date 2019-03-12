@@ -2,20 +2,20 @@ version: '3'
 services:
         client_web:
                 container_name: client_web
-                build: ./web/
+                image: web
+                build: .
                 ports:
                         - "8081:8081"
                 depends_on:
                         - server
-                        - mobile
         mobile_user:
                 container_name: mobile_user
-                depends_on:
-                        - server
+                image: mobile
         server:
                 container_name: server
+                image: server
                 restart: always
-                build: ./server/
+                build: .
                 ports:
                         - "8080:8080"
                 links:

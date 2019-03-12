@@ -4,7 +4,9 @@
   "description": "Area Server API",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "npm install",
+    "start": "node app.js",
+    "pretest": "npm install"
   },
   "author": "Yohan Le Quere",
   "license": "ISC",
