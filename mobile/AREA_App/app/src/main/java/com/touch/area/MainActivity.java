@@ -1,9 +1,13 @@
 package com.touch.area;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -19,6 +23,9 @@ import com.facebook.Profile;
 import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
@@ -55,28 +62,55 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         _facebook.setOnClickListener(this);
         _forgotPassword.setOnClickListener(this);
 
-        //FACEBOOK LOGIN
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        alert.setTitle("Adresse IP");
+        alert.setMessage("Veuillez entrer l'adresse ip du serveur," +
+                " si aucune adresse Ip n'est entrée EPITECH sera par défaut");
+        alert.setCancelable(false);
+
+        // Set an EditText view to get server ip
+        final EditText _ipView = new EditText(this);
+        alert.setView(_ipView);
+
+        final String ip = _ipView.getText().toString();
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                if (!TextUtils.isEmpty(ip))
+                    Globals.setIp(ip);
+            }
+        });
+        alert.show();
+
         callbackManager = CallbackManager.Factory.create();
         _facebook.setReadPermissions(Arrays.asList("public_profile", "user_friends"));
 
+        //FACEBOOK AUTO LOGIN
         /*AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        Profile profile = Profile.getCurrentProfile();
         final boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
 
-        // FACEBOOK AUTO LOGIN
-        if (isLoggedIn) {
+        if (isLoggedIn && profile != null && !Globals.isLogout()) {
             try {
-                String targetURL = "http://" + Globals.ip + ":8080/api/signinFacebook";
-                String urlParameters = "{\"accessToken\":\"" + accessToken.getToken() +
-                        "\",\"userId\":\"" + accessToken.getUserId() + "\"}";
-                String response = new HttpUrlConnection(this).execute(targetURL, urlParameters).get();
-                Globals.parseResponse(response, "logged");
+                Log.e("AUTO LOGIN", "autolog facebook success");
+                    String urlParameters = "{\"accessToken\":\"" + accessToken.getToken() +
+                            "\",\"userId\":\"" + accessToken.getUserId() + "\"}";
+                    String response = new HttpUrlConnection(this).execute("signinFacebook",
+                            urlParameters, "POST").get(5, TimeUnit.SECONDS);
+                    Globals.setName(profile.getName());
+                if (Globals.parseResponse(response, "logged")) {
+                    Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                    startActivity(intent);
+                }
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            } catch (TimeoutException e) {
+                e.printStackTrace();
             }
         } else {*/
-            //FACEBOOK ONCLICK
+            //FACEBOOK ONCLICK EVENT
             _facebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                 @Override
                 public void onSuccess(LoginResult loginResult) {
@@ -108,8 +142,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                         String urlParameters = "{\"accessToken\":\"" + accessToken.getToken() +
                             "\",\"userId\":\"" + accessToken.getUserId() + "\"}";
                         String response = new HttpUrlConnection(MainActivity.this).execute("signinFacebook",
-                                urlParameters).get(5, TimeUnit.SECONDS);
+                                urlParameters, "POST").get(5, TimeUnit.SECONDS);
+                        try {
+                            String json = response;
+                            Globals.findTokenInJson(json);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                         if (Globals.parseResponse(response, "logged")) {
+                            Globals.setLogout(false);
                             Intent intent = new Intent(MainActivity.this, MenuActivity.class);
                             startActivity(intent);
                         }
@@ -142,6 +183,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             {
                 try {
                     if (!attemptLogin()) {
+                        Globals.setLogout(false);
                         Intent intent = new Intent(MainActivity.this, MenuActivity.class);
                         startActivity(intent);
                     }
@@ -193,7 +235,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         if (!cancel) {
             String urlParameters = "{\"mail\":\"" + email + "\",\"password\":\"" + password + "\"}";
             String response = new HttpUrlConnection(MainActivity.this).execute("signin",
-                    urlParameters).get(5, TimeUnit.SECONDS);
+                    urlParameters, "POST").get(5, TimeUnit.SECONDS);
+                        try {
+                            String json = response;
+                            Globals.findTokenInJson(json);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
             if (!Globals.parseResponse(response, "logged")) {
                 cancel = true;
             }

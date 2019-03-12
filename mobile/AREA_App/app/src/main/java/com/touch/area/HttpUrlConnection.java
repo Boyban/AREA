@@ -1,5 +1,6 @@
 package com.touch.area;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -12,6 +13,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class HttpUrlConnection extends AsyncTask<String, Void, String> {
+
     private ProgressDialog dialog;
 
     public HttpUrlConnection(MainActivity activity) {
@@ -19,6 +21,10 @@ public class HttpUrlConnection extends AsyncTask<String, Void, String> {
     }
 
     public HttpUrlConnection(RegisterActivity activity) {
+        dialog = new ProgressDialog(activity);
+    }
+
+    public HttpUrlConnection(MenuActivity activity) {
         dialog = new ProgressDialog(activity);
     }
 
@@ -31,24 +37,31 @@ public class HttpUrlConnection extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... strings) {
 
-        if ((strings[0] != null || strings[1] != null)
-                || (strings[0].isEmpty() || strings[1].isEmpty())) {
+        if ((strings[0] != null || strings[1] != null || strings[2] != null)
+                || (strings[0].isEmpty() || strings[1].isEmpty() || strings[2].isEmpty())) {
             String targetURL = "http://" + Globals.getIp() + ":8080/api/" + strings[0];
             String json = strings[1];
+            String method = strings[2];
             HttpURLConnection connection = null;
 
             try {
                 //Create connection
                 Log.e("URL", targetURL);
+                Log.e("PARAMETERS", json);
+                Log.e("METHOD", method);
+
                 URL url = new URL(targetURL);
                 connection = (HttpURLConnection) url.openConnection();
 
-                connection.setRequestMethod("POST");
+                if (method.equals("POST"))
+                    connection.setRequestMethod("POST");
+                else if (method.equals("GET")) {
+                    connection.setRequestMethod("GET");
+                }
 
                 connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
                 connection.setRequestProperty("Content-Language", "en-US");
                 connection.setRequestProperty("Accept", "application/json");
-
 
                 connection.setUseCaches(false);
                 connection.setDoOutput(true);

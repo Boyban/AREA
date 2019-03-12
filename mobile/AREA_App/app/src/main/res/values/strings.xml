@@ -13,6 +13,11 @@
     <string name="confirm_password">Confirm password</string>
     <string name="family_name">Family name</string>
     <string name="logout">Logout</string>
+    <string name="presentation">You are in your area network.
+        In this Area you are able to manage your social network and automatize some tasks.
+        We are now compatible with Instagram, Facebook and Google.</string>
+    <string name="text_news">News : We recently update the authentication system and optimize it.
+        Welcome in the new safe Area.</string>
 
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_invalid_confirm_password">This password is incorrect</string>

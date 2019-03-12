@@ -14,8 +14,12 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.Profile;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -59,15 +63,25 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
                 @Override
                 public void onSuccess(LoginResult loginResult) {
                     AccessToken accessToken = loginResult.getAccessToken();
+                    Profile profile = Profile.getCurrentProfile();
+                    if (profile != null)
+                        Globals.setName(profile.getName());
                     try {
                         String urlParameters = "{\"accessToken\":\"" + accessToken.getToken() +
                             "\",\"userId\":\"" + accessToken.getUserId() + "\"}";
                         String response = new HttpUrlConnection(RegisterActivity.this).execute("signupFacebook",
-                                urlParameters).get(5, TimeUnit.SECONDS);
+                                urlParameters, "POST").get(5, TimeUnit.SECONDS);
                         if (Globals.parseResponse(response, "register")) {
                             response = new HttpUrlConnection(RegisterActivity.this).execute("signinFacebook",
-                                urlParameters).get(5, TimeUnit.SECONDS);
+                                urlParameters, "POST").get(5, TimeUnit.SECONDS);
+                             try {
+                            String json = response;
+                            Globals.findTokenInJson(json);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                             if (Globals.parseResponse(response, "logged")) {
+                                Globals.setLogout(false);
                                 Intent intent = new Intent(RegisterActivity.this, MenuActivity.class);
                                 startActivity(intent);
                                 finish();
@@ -106,10 +120,12 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
             e.printStackTrace();
         } catch (TimeoutException e) {
             e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    private boolean attemptLogin() throws ExecutionException, InterruptedException, TimeoutException {
+    private boolean attemptLogin() throws ExecutionException, InterruptedException, TimeoutException, JSONException {
         boolean cancel = false;
 
         _fnameView.setError(null);
@@ -151,11 +167,19 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
             String urlParameters = "{\"fname\":\"" + fname + "\",\"lname\":\"" + lname +
                     "\",\"mail\":\"" + email + "\",\"password\":\"" + password + "\"}";
             String response = new HttpUrlConnection(this).execute("signup",
-                    urlParameters).get(5, TimeUnit.SECONDS);
+                    urlParameters, "POST").get(5, TimeUnit.SECONDS);
             if (Globals.parseResponse(response, "register")) {
                 response = new HttpUrlConnection(this).execute("signin",
-                    urlParameters).get(5, TimeUnit.SECONDS);
+                    urlParameters, "POST").get(5, TimeUnit.SECONDS);
+                        try {
+                            String json = response;
+                            Globals.findTokenInJson(json);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                 if (Globals.parseResponse(response, "logged")) {
+                    Globals.setName(fname + " " + lname);
+                    Globals.setLogout(false);
                     Intent intent = new Intent(RegisterActivity.this, MenuActivity.class);
                     startActivity(intent);
                     finish();
