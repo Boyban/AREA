@@ -6,6 +6,23 @@ The goal of the Area project is to provide an social pool with somes services. T
 
 We will provide 5 services and 12 actions/reactions components.
 
+Here is a little description of technologies used in this project.
+
+##### Server 
+
+Language : Javascript  
+Framework : NodeJS  
+BDD : MongoDB with mongoose  
+
+##### Web Client
+
+Language : HTML /  Javascript  
+Framework : AngularJS  
+
+##### Mobile Client
+
+Language : JAVA  
+
 ### Services
 
 * Facebook
