@@ -188,7 +188,7 @@ exports.logout = function (req, res) {
         if (err || !user) return res.json({ logged : false });
         user.tokens.splice(user.tokens.findIndex(item => item.id === req.headers.authorization), 1);
         user.save(function (err) {
-            (err) ? res.send(err) : res.json({ logged : true });
+            (err) ? res.send(err) : res.json({ logout : true });
             tools.lowLevelLog(user.fname + ' ' + user.lname + " logout.");
         });
     });

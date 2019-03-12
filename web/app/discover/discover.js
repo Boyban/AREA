@@ -26,7 +26,7 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
         };
     })
 
-    .controller('discoverCtrl', ['$scope', '$location', '$http', '$cookies', '$rootScope', 'socialLoginService', '$timeout', 'Facebook', function($scope, $location, $http, $cookies, $rootScope, socialLoginService, $timeout, Facebook) {
+    .controller('discoverCtrl', ['$scope', '$location', '$http', '$cookies', '$rootScope', 'socialLoginService', '$timeout', 'Facebook', '$timeout', function($scope, $location, $http, $cookies, $rootScope, socialLoginService, $timeout, Facebook, $interval) {
         $scope.credentials = {
             token : $cookies.get('token'),
             fname : '',
@@ -59,6 +59,13 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
         $scope.pickables = {
             mailTimer : {
                 hour :  new Date('December 17, 1995 20:00')
+            },
+            mailTemp : {
+                temp : 0,
+                location : "Pithiviers"
+            },
+            mailPPFacebook : {
+                mail : ""
             }
         };
 
@@ -71,12 +78,28 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
             $http({
                 method: 'POST',
                 url: "http://localhost:8080/api/addWidget",
-                data: Object.toparams({ id: id, text: document.getElementById(id.toString()).innerText, icon: icon, parameters: Object.toparams(params) })
+                data: Object.toparams({ id: id, cl: $scope.classId.findIndex(x => x === cl), text: document.getElementById(id.toString()).innerText, icon: icon, parameters: Object.toparams(params) })
             }).then(function (res) {
                 if (!res.data.logged)
                     $location.path("/");
             });
             $scope.display = false;
+            $timeout(function(){
+                sortable( document.getElementById('list'), function (item){});
+            }, 200);
+        };
+
+        $scope.unsubscribe = function(text) {
+            $http.defaults.headers.common['Authorization'] = $scope.credentials.token;
+            $scope.widgets.splice($scope.widgets.findIndex(item => item.text === text), 1);
+            $http({
+                method: 'POST',
+                url: "http://localhost:8080/api/unsubscribe",
+                data: Object.toparams({ text: text })
+            }).then(function (res) {
+                if (!res.data.logged)
+                    $location.path("/");
+            });
         };
 
         Object.toparams = function ObjecttoParams(obj) {
@@ -106,13 +129,16 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
                 $scope.services.instagram.connected = res.data.serviceCd.Instagram;
                 $scope.widgets = res.data.widgets;
                 $scope.widgets.forEach(function (widget) {
-                    widget["class"] = $scope.classId[widget.id];
+                    widget["class"] = $scope.classId[widget.cl];
                 });
+                $timeout(function(){
+                    sortable( document.getElementById('list'), function (item){});
+                }, 200);
             });
 
         $scope.instagram = function() {
             if (!$scope.services.instagram.connected)
-                window.location.href = "https://api.instagram.com/oauth/authorize/?client_id=b445544a2a70448c96c3cc1b59ef36ba&redirect_uri=http://localhost:8000&response_type=token";
+                window.location.href = "https://api.instagram.com/oauth/authorize/?client_id=b445544a2a70448c96c3cc1b59ef36ba&redirect_uri=http://localhost:8081&response_type=token";
         };
 
         $scope.facebook = function() {
@@ -151,7 +177,7 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
         };
 
 
-            $rootScope.$on('event:social-sign-in-success', function(event, userDetails){
+        $rootScope.$on('event:social-sign-in-success', function(event, userDetails){
             $http.defaults.headers.common['Authorization'] = $scope.credentials.token;
             $http({
                 method : "POST",
@@ -166,4 +192,63 @@ angular.module('myApp.discover', ['ngRoute', 'ngCookies', 'socialLogin', 'facebo
 
             });
         });
+
+        function sortable(section, onUpdate){
+            var dragEl, nextEl, newPos, dragGhost;
+
+            let oldPos = [...section.children].map(item => {
+                console.log(item.id);
+                item.draggable = true;
+                let pos = document.getElementById(item.id).getBoundingClientRect();
+                return pos;
+            });
+
+            function _onDragOver(e){
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+
+                var target = e.target;
+                if( target && target !== dragEl && target.nodeName == 'DIV' ){
+                    if(target.classList.contains('inside')) {
+                        e.stopPropagation();
+                    } else {
+                        var targetPos = target.getBoundingClientRect();
+                        var next = (e.clientY - targetPos.top) / (targetPos.bottom - targetPos.top) > .1 || (e.clientX - targetPos.left) / (targetPos.right - targetPos.left) > .1;
+                        section.insertBefore(dragEl, next && target.nextSibling || target);
+
+                        console.log(oldPos);
+                    }
+                }
+            }
+
+            function _onDragEnd(evt){
+                evt.preventDefault();
+                newPos = [...section.children].map(child => {
+                    let pos = document.getElementById(child.id).getBoundingClientRect();
+                    return pos;
+                });
+                console.log(newPos);
+                dragEl.classList.remove('ghost');
+                section.removeEventListener('dragover', _onDragOver, false);
+                section.removeEventListener('dragend', _onDragEnd, false);
+
+                nextEl !== dragEl.nextSibling ? onUpdate(dragEl) : false;
+            }
+
+            section.addEventListener('dragstart', function(e){
+                dragEl = e.target;
+                nextEl = dragEl.nextSibling;
+                e.dataTransfer.effectAllowed = 'move';
+                e.dataTransfer.setData('Text', dragEl.textContent);
+
+                section.addEventListener('dragover', _onDragOver, false);
+                section.addEventListener('dragend', _onDragEnd, false);
+
+                setTimeout(function (){
+                    dragEl.classList.add('ghost');
+                }, 0)
+
+            });
+        };
+
     }]);

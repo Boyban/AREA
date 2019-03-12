@@ -3,19 +3,14 @@ services:
         client_web:
                 container_name: client_web
                 image: web
-                build: .
-                ports:
-                        - "8081:8081"
+                build: ./web
                 depends_on:
                         - server
-        mobile_user:
-                container_name: mobile_user
-                image: mobile
         server:
                 container_name: server
                 image: server
                 restart: always
-                build: .
+                build: ./server
                 ports:
                         - "8080:8080"
                 links:

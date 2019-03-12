@@ -46,7 +46,7 @@ angular.module('myApp.signin', ['ngRoute', 'ngCookies', 'facebook'])
                     $location.path('/discover');
                 }
             });
-        }
+        };
 
         $scope.signinFacebook = function() {
             Facebook.login(function(response) {

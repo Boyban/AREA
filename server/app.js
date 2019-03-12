@@ -20,7 +20,7 @@ const tools =       require('./tools/tools');
 mongoose.Promise = require('bluebird');
 
 const connectWithRetry = () => {
-  mongoose.connect('mongodb://localhost:27017/area', {
+  mongoose.connect('mongodb://mongo:27017/dashboard', { // 'mongodb://localhost:27017/area'
       reconnectTries: 30,
       reconnectInterval: 500,
       poolSize: 10,
@@ -64,6 +64,7 @@ router.route('/registerGoogle').post(userCtrl.registerGoogle);
 router.route('/registerInstagram').post(userCtrl.registerInstagram);
 router.route('/registerFacebook').post(userCtrl.registerFacebook);
 router.route('/addWidget').post(widgetCtrl.add);
+router.route('/unsubscribe').post(widgetCtrl.unsubscribe);
 
 app.listen(8080, function(){
     tools.lowLevelLog('Server running on 8080.');
@@ -79,14 +80,23 @@ app.get('/about.json', async function(req, res){
         },
         server: {
             current_time: null,
-            services: [{
-                name: "Timer",
-                actions: [{
-                    id: 0,
-                    name: "alarm",
-                    description: "it's time"
+            services: [
+                {
+                    name: "Timer",
+                    actions: [{
+                        id: 0,
+                        name: "alarm",
+                        description: "it's time"
+                    }]
+                },
+                {
+                    name: "Weather Under",
+                    actions: [{
+                        id: 1,
+                        name: "weather under alarm",
+                        description: "weather is under 'specific' temperature"
+                    }]
                 }]
-            }]
         }
     };
 

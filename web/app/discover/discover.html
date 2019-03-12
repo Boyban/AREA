@@ -40,27 +40,29 @@
         </div>
     </div>
 
-    <div class="container-widget">
-        <div ng-repeat="widget in widgets" class="widget {{ widget.class }}">
-            <div class="icon">
+    <section class="container-widget" id="list">
+        <div ng-repeat="widget in widgets" id="widget{{widget.id}}" class="widget {{ widget.class }}">
+            <div class="icon inside">
                 <img src="{{ widget.icon }}">
             </div>
-            <div class="desc">
+            <div class="desc inside">
                 <p>
                     {{ widget.text }}
                 </p>
             </div>
-            <div class="action">
+            <div class="action inside" ng-click="unsubscribe(widget.text)">
                 Unsubscribe
             </div>
         </div>
-        <div class="widget">
-            <p class="title">Ajouter un widget</p>
-            <div class="add" ng-click="pickWidget()">
-                <img src="http://movilab.org/images/2/2f/Plus.png" />
+        <div id="adder" class="widget">
+            <div class="inside">
+                <p class="title">Ajouter un widget</p>
+                <div class="add" ng-click="pickWidget()">
+                    <img src="http://movilab.org/images/2/2f/Plus.png" />
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <div class="modal-widget" ng-show="display">
         <div class="container-pick">
@@ -75,6 +77,102 @@
                     <input type="time" ng-model="pickables.mailTimer.hour" step="1" required>
                 </div>
                 <div class="action" ng-click="subscribe(0, 'w-timer', 'https://www.shareicon.net/data/128x128/2016/05/20/768105_time_512x512.png', { hour: pickables.mailTimer.hour.getHours(), min:  pickables.mailTimer.hour.getMinutes()})">
+                    Subscribe
+                </div>
+            </div>
+            <div class="widget w-weather">
+                <div class="icon">
+                    <img src="http://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/weather-icon.png">
+                </div>
+                <div class="desc">
+                    <p id="1">
+                        Get an email when the temperature is under {{ pickables.mailTemp.temp }}C° in {{ pickables.mailTemp.location }}.
+                    </p>
+                    <input type="text" placeholder="location" ng-model="pickables.mailTemp.location">
+                    <input type="number" placeholder="0C°"ng-model="pickables.mailTemp.temp">
+                </div>
+                <div class="action" ng-click="subscribe(1, 'w-weather', 'http://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/weather-icon.png', { temp: pickables.mailTemp.temp, loc: pickables.mailTemp.location })">
+                    Subscribe
+                </div>
+            </div>
+            <div class="widget w-weather">
+                <div class="icon">
+                    <img src="http://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/weather-icon.png">
+                </div>
+                <div class="desc">
+                    <p id="2">
+                        Get an email when the temperature is over {{ pickables.mailTemp.temp }}C° in {{ pickables.mailTemp.location }}.
+                    </p>
+                    <input type="text" placeholder="location" ng-model="pickables.mailTemp.location">
+                    <input type="number" placeholder="30C°"ng-model="pickables.mailTemp.temp">
+                </div>
+                <div class="action" ng-click="subscribe(2, 'w-weather', 'http://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/weather-icon.png', { temp: pickables.mailTemp.temp, loc: pickables.mailTemp.location })">
+                    Subscribe
+                </div>
+            </div>
+            <div class="widget w-facebook">
+                <div class="icon">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/I/21-leKb-zsL.png">
+                </div>
+                <div class="desc">
+                    <p id="3">
+                        Get an email when your profile picture in your linked Facebook account.
+                    </p>
+                </div>
+                <div class="action" ng-click="subscribe(3, 'w-facebook', 'https://images-eu.ssl-images-amazon.com/images/I/21-leKb-zsL.png', { params : 'noparams' })">
+                    Subscribe
+                </div>
+            </div>
+            <div class="widget w-instagram">
+                <div class="icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/480px-Instagram_icon.png">
+                </div>
+                <div class="desc">
+                    <p id="4">
+                        Update your profile picture on instagram when you update your profile picture on Facebook.
+                    </p>
+                </div>
+                <div class="action" ng-click="subscribe(4, 'w-instagram', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/480px-Instagram_icon.png', { params : 'noparams' })">
+                    Subscribe
+                </div>
+            </div>
+            <div class="widget w-google">
+                <div class="icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/480px-Instagram_icon.png">
+                </div>
+                <div class="desc">
+                    <p id="5">
+                        Post a picture on your Google+ account when you post it on Instagram.
+                    </p>
+                </div>
+                <div class="action" ng-click="subscribe(5, 'w-google', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png', { params : 'noparams' })">
+                    Subscribe
+                </div>
+            </div>
+            <div class="widget w-facebook">
+                <div class="icon">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/I/21-leKb-zsL.png">
+                </div>
+                <div class="desc">
+                    <p id="6">
+                        Post a Facebook news when you post a video on Youtube or Google+.
+                    </p>
+                </div>
+                <div class="action" ng-click="subscribe(5, 'w-facebook', 'https://images-eu.ssl-images-amazon.com/images/I/21-leKb-zsL.png', { params : 'noparams' })">
+                    Subscribe
+                </div>
+            </div>
+            <div class="widget w-facebook">
+                <div class="icon">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/I/21-leKb-zsL.png">
+                </div>
+                <div class="desc">
+                    <p id="7">
+                        Send an email to {{ pickables.mailPPFacebook.mail }} when you change your profile picture.
+                    </p>
+                    <input type="text" placeholder="Email Address" ng-model="pickables.mailPPFacebook.mail">
+                </div>
+                <div class="action" ng-click="subscribe(7, 'w-facebook', 'https://images-eu.ssl-images-amazon.com/images/I/21-leKb-zsL.png', { mail : pickables.mailPPFacebook.mail })">
                     Subscribe
                 </div>
             </div>
